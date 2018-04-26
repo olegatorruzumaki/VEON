@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" ng-app = "veon">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        angular.module('veon', []);
+    </script>
+    <script src="js/controllers/quote.js"></script>
+</head>
+<body>
+
+<div ng-controller = "quote as ctrl" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1><b>Quotes Added</b></h1>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{{ctrl.quoteBar}}" aria-valuemin="0"
+                         aria-valuemax="10" style="width:{{ctrl.quoteBar*10}}%">
+                        <span>{{ctrl.quoteBar}}/10</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <div class="send-form center-block">
+                    <b>Quote</b>
+
+                    <div>
+                        <textarea class="quote-input" ng-model="ctrl.quoteCurrent"></textarea>
+                    </div>
+                    <button ng-click="ctrl.sendQuote()" class="center-block accept-button"
+                            ng-disabled="ctrl.showError || !ctrl.quoteCurrent">Add Quote</button>
+                    <p class="text-center error send-form__error" ng-if="ctrl.showError">
+                        Для добавления новых цитат удалите одну из добавленных
+                    </p>
+                </div>
+            </div>
+
+            <div>
+                <div class="col-lg-3" ng-repeat="quote in ctrl.quoteList track by $index">
+                    <div class="quote-block" ng-click="ctrl.deleteQuote(quote)">
+                        {{quote.text}}
+                        {{quote.indexOf}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

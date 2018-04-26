@@ -1,0 +1,50 @@
+@font-face {
+    font-family: arizonia-regular;
+    src: url(Arizonia-Regular.ttf);
+}
+
+.send-form {
+    width: 600px;
+}
+
+.quote-input {
+    width: 100%;
+}
+
+.error {
+    color: #bf0000;
+}
+
+.send-form__error {
+    margin-top: 25px;
+}
+
+.accept-button {
+    transition: 0.3s all;
+    background: #337ab7;
+    border: 0;
+    border-radius: 3px;
+    padding: 15px;
+    color: white;
+}
+.accept-button:hover {
+    background: #1b70b9;
+}
+
+button[disabled], button[disabled]:hover {
+    background: #909498;
+}
+
+.quote-block {
+    transition: 0.3s all;
+    cursor: pointer;
+    box-shadow: 0 0 4px 2px #cec9c9;
+    margin: 25px;
+    padding: 15px;
+    font-family: arizonia-regular;
+    font-size: 25px;
+    word-wrap: break-word;
+}
+.quote-block:hover {
+    background: #dedede;
+}
